@@ -8,7 +8,9 @@ module.exports = (app) => {
 
   //Autores
   app.post('/api/autores', autoresController.create);
+  app.get('/api/autores', autoresController.list);
 
   //Libros
   app.post('/api/libros', librosController.create);
+  app.get('/api/libros', librosController.list);
 };

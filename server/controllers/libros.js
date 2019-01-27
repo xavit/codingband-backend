@@ -10,4 +10,10 @@ module.exports = {
       .then(libro => res.status(201).send(libro))
       .catch(error => res.status(400).send(error));
   },
+  list(req, res) {
+    return Libro
+      .all()
+      .then(libro => res.status(200).send(libro))
+      .catch(error => res.status(400).send(error));
+  },
 };

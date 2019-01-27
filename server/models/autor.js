@@ -5,10 +5,17 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Autor.associate = function(models) {
     
-    Autor.belongsToMany(models.AutorLibro, {
+    Autor.belongsToMany(models.Libro, {
       through: models.AutorLibro
-    }
-    );
+    });
+    // Autor.belongsToMany(models.AutorLibro, {
+    //   as: 'Libros',
+    //   through: {
+    //     model: models.AutorLibro,
+    //     unique: false
+    //   },
+    //   foreignKey: 'id_libro'
+    // });
 
   };
   return Autor;
