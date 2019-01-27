@@ -4,11 +4,12 @@ module.exports = (sequelize, DataTypes) => {
     nombre: DataTypes.STRING
   }, {});
   Autor.associate = function(models) {
-    Autor.belongsToMany(models.Libro, {
-      as: 'Books',
-      through: 'autor_libros',
-      foreignKey: 'userId'
-    });
+    
+    Autor.belongsToMany(models.AutorLibro, {
+      through: models.AutorLibro
+    }
+    );
+
   };
   return Autor;
 };

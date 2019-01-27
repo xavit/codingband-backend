@@ -5,11 +5,9 @@ module.exports = (sequelize, DataTypes) => {
     fecha_eidcion: DataTypes.DATE
   }, {});
   Libro.associate = function(models) {
-    Libro.belongsToMany(models.Libro, {
-      as: 'Autors',
-      through: 'libro_autor',
-      foreignKey: 'libroId'
-    });
+    Libro.belongsToMany(models.AutorLibro, {
+      through: models.AutorLibro
+    });    
   };
   return Libro;
 };
